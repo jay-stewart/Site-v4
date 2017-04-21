@@ -1274,58 +1274,53 @@ body.blog article:last-child {
 
 
 
-
-
-/* Post Thumbnail
+/* Image Overlays
 -----------------------------*/
 
- .post-thumbnail {
-	position:relative;
+.post-thumbnail,
+.post-thumbnail a,
+.portfolio-thumbnail,
+.portfolio-thumbnail a {
+	position: relative;
+	display: block;
 }
 
-.post-thumbnail a img {
+ .post-thumbnail,
+ .portfolio-thumbnail {
+	position: relative;
+}
+
+img.with-overlay {
 	display: block;
 	width: 100%;
+	backface-visibility: hidden;
 }
 
-.post-thumbnail .image-overlay-full {
-	background: rgba(219, 199, 109, 0.8);
+.image-overlay-full {
+	background: rgba(255, 255, 255, .4);
 	position:absolute;
 	top:0;
 	left:0;
 	width:100%;
 	height:100%;
-	opacity:0;
-	-webkit-transition-duration:0.5s;
-	-moz-transition-duration:0.5s;
-	-o-transition-duration:0.5s;
-	-ms-transition-duration:0.5s;
-	transition-duration:0.5s;
+	opacity:1;
 	cursor:pointer;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
 }
 
-.post-thumbnail .image-overlay-middle {
-	width:50px;
-	height:50px;
-	background:#333;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
+.image-overlay-middle {
+	opacity:1;
+	background: transparent;
 	position:absolute;
 	top:50%;
-	opacity:0;
 	left:50%;
+	-ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
 	cursor:pointer;
-	margin-left:-25px;
-	margin-top:-25px;
-	-webkit-transition-duration:0.5s;
-	-moz-transition-duration:0.5s;
-	-o-transition-duration:0.5s;
-	-ms-transition-duration:0.5s;
-	transition-duration:0.5s;
 }
 
-.post-thumbnail .image-overlay-middle i {
+.image-overlay-middle i {
 	color: #fff;
 	font-size: 18px;
 	text-align: center;
@@ -1334,11 +1329,18 @@ body.blog article:last-child {
 	width: 52px;
 }
 .post-thumbnail:hover .image-overlay-full,
-.post-thumbnail:hover .image-overlay-middle  {
-	opacity: 1;
+.post-thumbnail:hover .image-overlay-middle,
+.portfolio-thumbnail:hover .image-overlay-full,
+.portfolio-thumbnail:hover .image-overlay-middle {
+	opacity: 0;
 }
-
-
+	
+/* .post-thumbnail:hover img,
+.post-thumbnail:hover img,
+.portfolio-thumbnail:hover img,
+.portfolio-thumbnail:hover img {
+    opacity: 1;
+} */
 
 
 
@@ -1505,45 +1507,6 @@ ul.pricing-table-list {
 }
 
 
-/* Overlays
---------------------------------
-.image-overlay-middle h6 {
-	background-color: #dbc76d;
-	color: white;
-	font-size: 16px;
-	padding: 16px 32px;
-}
-
-.post-thumbnail {
-    position: relative;
-}
-
-.post-thumbnail img {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.image-overlay-middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
-}
-
-.post-thumbnail:hover .post-thumbnail img {
-  opacity: 0.3;
-}
-
-.post-thumbnail:hover .image-overlay-middle {
-  opacity: 1;
-}*/
 
 
 /* SVG Icons
