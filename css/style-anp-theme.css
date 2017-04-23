@@ -18,6 +18,53 @@ start at 11.0 Layout due to basic.css
 --------------------------------------------------------------*/
 
 
+/*--------------------------------------------------------------
+3.0 Clearings
+
+* Add to/remove from this list as necessary.
+
+--------------------------------------------------------------*/
+
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after,
+.footer-social-links:before,
+.footer-social-links:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after,
+.footer-social-links:after {
+	clear: both;
+}
+
+
+
+/* Icon Base Styles. Includes SVG and FontAwesome
+--------------------------------------------------------------*/
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1em;
+	width: 1em;
+}
 
 
 /* 11.0 Layout
@@ -59,9 +106,8 @@ start at 11.0 Layout due to basic.css
 	width: 100%;
 	border-bottom: 1px solid #eee;
 	background-color: #fff;
-
+	color: #222;
 }
-
 
 .custom-header {
 	position: relative;
@@ -69,6 +115,7 @@ start at 11.0 Layout due to basic.css
 	height: 70vh;
 	width: 100%;
 }
+
 .custom-header-image {
 	bottom: 0;
 	left: 0;
@@ -133,8 +180,6 @@ start at 11.0 Layout due to basic.css
 	opacity: 0.6;
 }
 
-
-
 .custom-logo-link img {
 	display: block;
 	max-height: 70px;
@@ -144,18 +189,16 @@ start at 11.0 Layout due to basic.css
 
 
 
-
-
-
-
 /* Menu toggle */
 
 .menu-toggle {
+	font-size: 16px;
+	font-size: 1rem;
 	background-color: transparent;
 	border: 0;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	color: #777;
+	color: #222;
 	display: none;
 	line-height: 1;
 	margin: .25em auto;
@@ -170,7 +213,7 @@ start at 11.0 Layout due to basic.css
 
 .menu-toggle:hover,
 .menu-toggle:focus {
-	color: #333;
+	color: inherit;
 	background-color: transparent;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -192,15 +235,6 @@ start at 11.0 Layout due to basic.css
 
 
 
-
-
-
-
-
-
-
-
-
 /* 13.0 Navigation
 --------------------------------------------------------------*/
 
@@ -213,27 +247,29 @@ start at 11.0 Layout due to basic.css
 	clear: both;
 	display: block;
 	z-index: 1;
+	
+	-webkit-box-shadow: 0px 20px 20px -10px rgba(135,135,135,0.5);
+	   -moz-box-shadow: 0px 20px 20px -10px rgba(135,135,135,0.5);
+	        box-shadow: 0px 20px 20px -10px rgba(135,135,135,0.5);
 }
 
 .main-navigation a {
-	color: #777;
+	color: #222;
 	font-weight: 500;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 	display: block;
 	padding: 1em 2em;
 	text-decoration: none;
-}
-
-.main-navigation .site-navigation a {
 	text-transform: uppercase;
-	}
+}
 
 
 .main-navigation a:hover,
 .main-navigation .current-menu-item > a,
 .main-navigation .current_page_item > a {
 	color: #DBC76D;
+
 }
 
 /* all ul's within .main-navigation. if we had submenus, it would include these. */
@@ -245,7 +281,7 @@ start at 11.0 Layout due to basic.css
 	text-align: center;
 }
 
-/* Hide the menu on small screens when JavaScript is available. */
+/* Hide the menu(s) on small screens when JavaScript is available. */
 .js .main-navigation ul {
 	display: none;
 }
@@ -261,7 +297,7 @@ start at 11.0 Layout due to basic.css
 
 
 
-/* Scroll down arrow */
+/* Scroll down arrow (only on front page on large screens)*/
 .site-header .menu-scroll-down-container {
 	display: none;
 }
@@ -269,13 +305,12 @@ start at 11.0 Layout due to basic.css
 
 
 
-
 /* Social navigation (in header). Also found in footer, but styled differently */
 
-.social-navigation {
+.top-navbar .social-navigation {
 }
 
-.social-navigation ul {
+.top-navbar .social-navigation ul {
 	list-style: none;
 	margin: 0 0 1.5em;
 	padding: 0;
@@ -283,13 +318,13 @@ start at 11.0 Layout due to basic.css
 	
 }
 
-.social-navigation ul li {
+.top-navbar .social-navigation ul li {
 	display: inline-block;
 	border-style: none;
 	margin: .75em;
 }
 
-.social-navigation ul li a {
+.top-navbar .social-navigation ul li a {
 	padding: 0;
 	background-color: #777;
 	color: #fff;
@@ -302,8 +337,8 @@ start at 11.0 Layout due to basic.css
 }
 
 
-.social-navigation ul li a:hover,
-.social-navigation ul li a:focus {
+.top-navbar .social-navigation ul li a:hover,
+.top-navbar .social-navigation ul li a:focus {
 	color: #fff;
 	background-color: #333;
 }
@@ -320,6 +355,9 @@ start at 11.0 Layout due to basic.css
 /*--------------------------------------------------------------
 14.0 Front Page
 --------------------------------------------------------------*/
+.anp-front-page .site-content {
+	padding: 0;
+}
 
 .anp-panel {
 	overflow: hidden;
@@ -348,10 +386,6 @@ start at 11.0 Layout due to basic.css
 
 .panel-content .entry-footer {
 	margin-top: 0;
-}
-
-.panel-content .entry-content p:last-child {
-	margin-bottom: 0;
 }
 
 .anp-panel.recent-posts {
@@ -425,6 +459,24 @@ start at 11.0 Layout due to basic.css
 }
 
 
+/* About Panel
+-------------------------*/
+
+.anp-panel.about ul {
+	list-style: none;
+}
+
+.anp-panel.about ul li {
+	margin-bottom: 1.5em;
+}
+
+.anp-panel.about ul li .icon {
+	margin-right: 1em;
+	height: 2em;
+	width: 2em;
+}
+
+
 
 
 /*--------------------------------------------------------------
@@ -440,9 +492,6 @@ start at 11.0 Layout due to basic.css
 	padding: 3em 0 0;
 }
 
-.anp-front-page .site-content {
-	padding-top: 0;
-}
 
 /*--------------------------------------------------------------
 15.1 Posts
@@ -450,22 +499,42 @@ start at 11.0 Layout due to basic.css
 
 /* Post Landing Page */
 
-.sticky {
-	position: relative;
+/* Post (Excerpt) Layout
+--------------------------------------*/
+
+body.blog article {
+	padding: 0 1em;
+	margin-bottom: 5em;
 }
 
-.post:not(.sticky) .icon-thumb-tack {
-	display: none;
+body.blog article:last-child {
+	margin-bottom: 0;
 }
 
-.sticky .icon-thumb-tack {
-	display: block;
-	height: 18px;
-	left: -1.5em;
-	position: absolute;
-	top: 1.65em;
-	width: 20px;
+.post-thumbnail,
+.entry-header,
+.entry-content,
+.entry-footer {
+	margin-bottom: 1.5em;
 }
+
+
+
+.entry-content .btn-bt{
+  float:right;
+}
+
+.entry-content:before,
+.entry-content:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.entry-content:after {
+	clear: both;
+}
+
 
 .page-title,
 .page .panel-content .entry-title,
@@ -588,6 +657,27 @@ body.page:not(.anp-front-page) .entry-title {
 	float: right;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Aligned blockquotes */
 
 .entry-content blockquote.alignleft,
@@ -694,8 +784,6 @@ body:not(.anp-front-page) .entry-header {
 /* Entry footer */
 
 .entry-footer {
-	border-bottom: 1px solid #eee;
-	border-top: 1px solid #eee;
 	margin-top: 2em;
 	padding: 2em 0;
 }
@@ -1176,14 +1264,7 @@ h2.widget-title {
 }
 
 
-/* SVG Icons base styles */
 
-.icon {
-	display: inline-block;
-	fill: currentColor;
-	height: 1em;
-	width: 1em;
-}
 
 
 /*--------------------------------------------------------------
@@ -1236,42 +1317,6 @@ h1 + .separator {
 
 
 
-/* Post (Excerpt) Layout
---------------------------------------*/
-
-body.blog article {
-	padding: 0 1em;
-	margin-bottom: 5em;
-}
-
-body.blog article:last-child {
-	margin-bottom: 0;
-}
-
-.post-thumbnail,
-.entry-header,
-.entry-content,
-.entry-footer {
-	margin-bottom: 1.5em;
-}
-
-
-
-.entry-content .btn-bt{
-  float:right;
-}
-
-.entry-content:before,
-.entry-content:after {
-	content: "";
-	display: table;
-	table-layout: fixed;
-}
-
-.entry-content:after {
-	clear: both;
-}
-
 
 
 /* Image Overlays
@@ -1315,8 +1360,12 @@ img.with-overlay {
 	position:absolute;
 	top:50%;
 	left:50%;
-	-ms-transform: translate(-50%, -50%);
-	    transform: translate(-50%, -50%);
+	
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+
 	cursor:pointer;
 }
 
@@ -1417,9 +1466,20 @@ img.with-overlay {
     margin-bottom: 1em;
 }
 
+.entry-content p:last-child {
+	margin-bottom: 0;
+}
+
 .entry-content p a {
     color: #dbc76d;
 }
+
+
+
+
+
+
+
 
 
 /* Pricing Page
@@ -1430,7 +1490,6 @@ img.with-overlay {
 
 .pricing-category h2 {
 	margin-bottom: 1em;
-    letter-spacing: .075em;
 }
 .pricing-category p {
 	margin-bottom: 1em;
@@ -1509,32 +1568,6 @@ ul.pricing-table-list {
 
 
 
-/* SVG Icons
--------------------------*/
-
-.icon {
-	display: inline-block;
-	fill: currentColor;
-	height: 1em;
-	vertical-align: middle;
-	width: 1em;
-}
-
-.anp-panel.about ul {
-	list-style: none;
-	
-}
-
-.anp-panel.about ul li {
-	margin-bottom: 1.5em;
-}
-
-.anp-panel.about ul li .icon {
-	margin-right: 1em;
-	height: 2em;
-	width: 2em;
-	
-}
 
 
 
@@ -1550,11 +1583,16 @@ ul.pricing-table-list {
 
 
 
-/* New
---------------------------------------*/
 .widget-header {
 	margin-bottom: 2em;
 }
+
+
+
+
+
+/* Footer
+--------------------------------------*/
 
 .instagram-widget {
 	background-color: #eee;
@@ -1578,7 +1616,7 @@ ul.pricing-table-list {
 	color: #dbc76d;;
 }
 
-.instagram-widget .social-icon {
+.instagram-widget .icon {
 	margin-right: .75em;
 }
 
@@ -1600,23 +1638,13 @@ ul.pricing-table-list {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 .footer-social-links {
 	padding: 2em 0;
 	background-color: #fff;
 }
 
 .footer-social-links ul {
+	padding: 0;
 	margin: 0;
 	list-style: none;
 	text-align: center
@@ -1635,12 +1663,6 @@ ul.pricing-table-list {
 	letter-spacing: .3em;
 }
 
-.footer-social-links .social-icon {
+.footer-social-links .icon {
 	margin-right: 1em;
 }
-
-
-
-
-
-
